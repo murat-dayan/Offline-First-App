@@ -1,4 +1,4 @@
-package com.muratdayan.offlinenewsapp.ui.theme
+package com.muratdayan.offlinenewsapp.core.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
