@@ -1,9 +1,7 @@
 package com.muratdayan.offlinenewsapp.core.domain
 
-import kotlinx.serialization.Serializable
 
-
-data class News(
+data class Article(
     val article_id:String,
     val title:String,
     val description: String,

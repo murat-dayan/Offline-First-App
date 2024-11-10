@@ -3,7 +3,7 @@ package com.muratdayan.offlinenewsapp.core.data.remote
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class NewsDto(
+data class ArticleDto(
     val article_id:String?,
     val title:String?,
     val description: String?,
