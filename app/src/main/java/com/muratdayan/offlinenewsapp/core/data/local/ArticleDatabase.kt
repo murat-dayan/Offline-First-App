@@ -1,8 +1,9 @@
 package com.muratdayan.offlinenewsapp.core.data.local
 
 import androidx.room.Database
+import androidx.room.RoomDatabase
 
 @Database(entities = [ArticleEntity::class], version = 1)
-abstract class ArticleDatabase {
+abstract class ArticleDatabase : RoomDatabase(){
     abstract val dao : ArticlesDao
 }
