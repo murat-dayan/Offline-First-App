@@ -75,7 +75,7 @@ class NewsRepositoryImpl(
         }
     }
 
-    override suspend fun paginate(nextPage: String): Flow<NewsResult<NewsList>> {
+    override suspend fun paginate(nextPage: String?): Flow<NewsResult<NewsList>> {
         return flow {
             val remoteNewsList = try {
                 getRemoteNews(nextPage)
