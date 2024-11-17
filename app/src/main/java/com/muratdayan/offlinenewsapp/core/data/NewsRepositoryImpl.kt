@@ -12,6 +12,7 @@ import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 import kotlinx.coroutines.flow.flow
+import kotlin.coroutines.cancellation.CancellationException
 
 class NewsRepositoryImpl(
     private val httpClient: HttpClient,
@@ -20,7 +21,7 @@ class NewsRepositoryImpl(
 
     private val tag = "NewsRepository: "
     private val baseUrl = "https://newsdata.io/api/1/latest"
-    private val apiKey = ""
+    private val apiKey = "pub_5880449c678cc01a5be65fcdeab4e638c75dd"
 
     private suspend fun getLocalNews(nextPage: String?): NewsList {
         val localNews = dao.getArticleList()
@@ -52,6 +53,7 @@ class NewsRepositoryImpl(
                 getRemoteNews(null)
             }catch (e:Exception){
                 e.printStackTrace()
+                if(e is CancellationException) throw e
                 println(tag + "getNews remote exception: " + e.message)
                 null
             }
@@ -79,6 +81,7 @@ class NewsRepositoryImpl(
                 getRemoteNews(nextPage)
             }catch (e:Exception){
                 e.printStackTrace()
+                if(e is CancellationException) throw e
                 println(tag + "paginate remote exception: " + e.message)
                 null
             }
