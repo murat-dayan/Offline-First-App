@@ -51,7 +51,7 @@ class NewsViewModel(
                 }
             }
             state = state.copy(
-                isLoading = true
+                isLoading = false
             )
         }
     }
@@ -80,7 +80,7 @@ class NewsViewModel(
                 }
             }
             state = state.copy(
-                isLoading = true
+                isLoading = false
             )
         }
     }
