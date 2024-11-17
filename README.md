@@ -13,7 +13,7 @@ This app is a modern Android application that works both online and offline. It 
 - **Dependency Injection:** Efficient dependency management with Koin.
 
 ## Requirements
-- Android 5.0 (Lollipop) or above
+- MinSDK 24, Android 7.0 Nougat or above
 - Internet connection (for online features)
 - An API key (explained below)
 
