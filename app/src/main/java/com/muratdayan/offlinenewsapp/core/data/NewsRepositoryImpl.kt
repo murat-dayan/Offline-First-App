@@ -1,5 +1,6 @@
 package com.muratdayan.offlinenewsapp.core.data
 
+import com.muratdayan.offlinenewsapp.BuildConfig
 import com.muratdayan.offlinenewsapp.core.data.local.ArticlesDao
 import com.muratdayan.offlinenewsapp.core.data.remote.NewsListDto
 import com.muratdayan.offlinenewsapp.core.domain.Article
@@ -21,7 +22,7 @@ class NewsRepositoryImpl(
 
     private val tag = "NewsRepository: "
     private val baseUrl = "https://newsdata.io/api/1/latest"
-    private val apiKey = "xxxxxxxxxxxxxxxxxxxxxxxxx"
+    private val apiKey = BuildConfig.API_KEY
 
     private suspend fun getLocalNews(nextPage: String?): NewsList {
         val localNews = dao.getArticleList()
