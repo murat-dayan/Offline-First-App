@@ -3,6 +3,7 @@
 This app is a modern Android application that works both online and offline. It leverages the MVI (Model-View-Intent) architecture and incorporates popular libraries such as Room, Retrofit, and Koin.
 <div align="center">
 <img src="https://github.com/user-attachments/assets/d248e0cc-d5f6-447a-869e-2ae1bfad2b00" alt="project-screenshot" width="300" height="800/">
+<img src="https://github.com/user-attachments/assets/69f5d7f8-34e0-4ca4-b69b-409683025ee1" alt="project-screenshot" width="300" height="800/">
 </div>
 
 ## Features
