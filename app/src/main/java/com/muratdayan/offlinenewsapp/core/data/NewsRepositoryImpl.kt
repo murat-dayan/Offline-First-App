@@ -96,4 +96,34 @@ class NewsRepositoryImpl(
         }
     }
 
+    override suspend fun getArticle(articleId: String): Flow<NewsResult<Article>> {
+        return flow {
+            dao.getArticle(articleId)?.let {article->
+                println(tag + "getArticle" + article.article_id)
+                emit(NewsResult.Success(article.toArticle()))
+                return@flow
+            }
+
+            try {
+                val remoteArticle : NewsListDto= httpClient.get(baseUrl){
+                    parameter("apikey",apiKey)
+                    parameter("id",articleId)
+                }.body()
+                println(tag + "getArticle" + remoteArticle.results?.size)
+
+                if (remoteArticle.results?.isNotEmpty() == true){
+                    emit(NewsResult.Success(remoteArticle.results[0].toArticle()))
+                }else{
+                    emit(NewsResult.Error("No Data Article "))
+                }
+
+            }catch (e:Exception){
+                e.printStackTrace()
+                if(e is CancellationException) throw e
+                println(tag + "getArticle exception: " + e.message)
+                emit(NewsResult.Error("No Data Article "))
+            }
+        }
+    }
+
 }
