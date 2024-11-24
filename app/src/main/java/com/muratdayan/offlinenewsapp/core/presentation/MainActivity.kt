@@ -12,6 +12,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
+import com.muratdayan.offlinenewsapp.article.presentation.ArticleScreenCore
 import com.muratdayan.offlinenewsapp.core.presentation.ui.theme.OfflineNewsAppTheme
 import com.muratdayan.offlinenewsapp.news.presentation.NewsScreenCore
 
@@ -27,9 +28,7 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
-    fun AppNavigation(
-        modifier: Modifier = Modifier
-    ){
+    fun AppNavigation(){
         val navController = rememberNavController()
 
         NavHost(
@@ -45,6 +44,7 @@ class MainActivity : ComponentActivity() {
             composable<Screen.Article> {backStackEntry->
                 val article : Screen.Article = backStackEntry.toRoute()
                 article.articleId
+                ArticleScreenCore(articleId = article.articleId)
             }
         }
     }

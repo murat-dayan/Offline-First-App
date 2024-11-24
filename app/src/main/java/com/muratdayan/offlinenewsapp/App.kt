@@ -1,6 +1,7 @@
 package com.muratdayan.offlinenewsapp
 
 import android.app.Application
+import com.muratdayan.offlinenewsapp.article.di.articleModule
 import com.muratdayan.offlinenewsapp.core.di.coreModule
 import com.muratdayan.offlinenewsapp.news.di.newsModule
 import org.koin.android.ext.koin.androidContext
@@ -14,7 +15,8 @@ class App : Application() {
             androidContext(this@App)
             modules(
                 coreModule,
-                newsModule
+                newsModule,
+                articleModule
             )
         }
     }
